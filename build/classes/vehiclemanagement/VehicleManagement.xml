@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : VehicleManagement.xml
+    Created on : January 15, 2012, 6:16 PM
+    Author     : Sarantis
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns0:Vehicle  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+              xmlns:ns0='http://xml.netbeans.org/schema/VehicleManagement'
+              xsi:schemaLocation='http://xml.netbeans.org/schema/VehicleManagement VehicleManagement.xsd'>
+    <ns0:CompaniesAssociated>
+        <ns0:Manufacturer></ns0:Manufacturer>
+        <ns0:CoManufacturer></ns0:CoManufacturer>
+        <ns0:CopyrightAgreement></ns0:CopyrightAgreement>
+    </ns0:CompaniesAssociated>
+    <ns0:VehicleDetails>
+        <ns0:ModelName></ns0:ModelName>
+        <ns0:CreationDate></ns0:CreationDate>
+        <ns0:VehicleType></ns0:VehicleType>
+        <ns0:VehicleIdentificationNumber></ns0:VehicleIdentificationNumber>
+        <ns0:VehicleAncestor></ns0:VehicleAncestor>
+        <ns0:VehicleDescendant></ns0:VehicleDescendant>
+    </ns0:VehicleDetails>
+    <ns0:DistributionDetails>
+        <ns0:Distributor></ns0:Distributor>
+        <ns0:DistributionManualLanguage></ns0:DistributionManualLanguage>
+        <ns0:DistributorWarranty>
+            <ns0:WarrantyStart></ns0:WarrantyStart>
+            <ns0:WarrantyEnd></ns0:WarrantyEnd>
+        </ns0:DistributorWarranty>
+    </ns0:DistributionDetails>
+
+</ns0:Vehicle>

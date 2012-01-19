@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/VehicleManagement"
+    xmlns:tns="http://xml.netbeans.org/schema/VehicleManagement"
+    elementFormDefault="qualified">
+    <xsd:element name="Vehicle">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompaniesAssociated">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Manufacturer" type="xsd:Name"/>
+                            <xsd:element name="CoManufacturer" type="xsd:Name"/>
+                            <xsd:element name="CopyrightAgreement" type="xsd:anyURI"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="VehicleDetails">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="ModelName" type="xsd:Name"/>
+                            <xsd:element name="CreationDate" type="xsd:date"/>
+                            <xsd:element name="VehicleType" type="xsd:string"/>
+                            <xsd:element name="VehicleIdentificationNumber" type="xsd:string"/>
+                            <xsd:element name="VehicleAncestor" type="xsd:NCName"/>
+                            <xsd:element name="VehicleDescendant" type="xsd:NCName"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DistributionDetails">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Distributor" type="xsd:Name"/>
+                            <xsd:element name="DistributionManualLanguage" type="xsd:string"/>
+                            <xsd:element name="DistributorWarranty">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="WarrantyStart" type="xsd:date"/>
+                                        <xsd:element name="WarrantyEnd" type="xsd:date"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
