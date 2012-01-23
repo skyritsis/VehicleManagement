@@ -29,6 +29,7 @@ public class ExistXmlDbClient
     public static void main(String[] args) {
         ExistXmlDbClient exdbcl = new ExistXmlDbClient();
         ExistRpcConnector db = null;
+        Xslttrans xt = new Xslttrans();
         String collection = "myproject/vehicles";
         String filename = "myVehicle.xml";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -42,21 +43,23 @@ public class ExistXmlDbClient
                 System.out.println("Connected to Database");     
                
                 
-                /*/insert method with filename variable in it
+                //*/insert method with filename variable in it
                 exdbcl.insert(db,filename, collection);
                 exdbcl.insert(db,"myVehicle00.xml", collection);
                 exdbcl.insert(db,"myVehicle01.xml", collection);
                 exdbcl.insert(db,"myVehicle02.xml", collection);
                 exdbcl.insert(db,"myVehicle03.xml", collection);
-                */
-                exdbcl.update(db, filename, collection, "ModelName", "gsxr");
+                
+                //*/
+                //exdbcl.update(db, filename, collection, "ModelName", "gsxr");
                 //Now search for Vehicles of Model CBR
                 //String query = ("declare default element namespace 'http://xml.netbeans.org/schema/VehicleManagement';"
                 //        + "for $vehicle in collection ('myproject')/Vehicle where $vehicle/VehicleDetails/CreationDate='"+xg+"' return $vehicle");
                 //String query = exdbcl.execQueryEq("CreationDate", format.format(xg2.getTime()));
                 //String query = exdbcl.execQueryEq("WarrantyStart", format.format(xg.getTime()));
                 //String query = exdbcl.execQueryEq("CreationDate", xg.toString());
-                String query = exdbcl.execQueryConc("CreationDate,WarrantyStart","<,=", format.format(xg2.getTime())+","+format.format(xg.getTime()), "or, ",2);
+                //String query = exdbcl.execQueryConc("CreationDate,WarrantyStart","<,=", format.format(xg2.getTime())+","+format.format(xg.getTime()), "or, ",2);
+                String query = exdbcl.execQueryEqOr("ModelName", "CBR", "Manufacturer", "Honda");
                 System.out.println("\n"+query+"\n");
                 String results = db.executeQuery(query);
                 System.out.println(results+"\nholy\n"+format.format(xg.getTime())+"\n"+results.split("</veh:Vehicle>")[0]);
@@ -64,7 +67,9 @@ public class ExistXmlDbClient
                 VehicleDocument outVDoc = null;
                 try {
                     //outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.substring(0,results.indexOf("</veh:Vehicle>")+15));
-                    outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.split("</veh:Vehicle>")[1]+"</veh:Vehicle>");
+                    outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.split("</veh:Vehicle>")[0]+"</veh:Vehicle>");
+                    System.out.println(outVDoc.toString());
+                    xt.Transformation(outVDoc.toString());
                 } catch (XmlException ex) {
                     //handle exception    
                     ex.printStackTrace();
