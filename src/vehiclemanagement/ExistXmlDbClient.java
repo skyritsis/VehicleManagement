@@ -21,7 +21,17 @@ import org.apache.xmlbeans.XmlException;
 import org.netbeans.xml.schema.vehicleManagement.VehicleDocument;
 
 /**
- *
+ *  this class has the basic functions to be performed by a client
+ * the create/delete/insert and update functions are for creating an xml doc,deleting a doc or a collection inserting a premade xml doc
+ * and updating an xml doc from the db, respectively.
+ * execQueryafter is for elem>value
+ * execQuerybefore is for elem<value
+ * execQuery conc is a special query made by string concatenations, in order
+ * to create more complex querys
+ * it takes elem,elem,..,elem operand,..,operand value,..,value and and/or,..,and/or,[space] and at last the number of the
+ * elements included and makes elem operand value and/or by concatenating the above strings
+ * execQueryEq is for equation and EqOr EqAnd is for equation or equation / equation and equation respectively
+ * execQuery range is for ranged query x<=value<y
  * @author Sarantis
  */
 public class ExistXmlDbClient 
@@ -66,7 +76,6 @@ public class ExistXmlDbClient
                 //Bind the Resulted Document...
                 VehicleDocument outVDoc = null;
                 try {
-                    //outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.substring(0,results.indexOf("</veh:Vehicle>")+15));
                     outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.split("</veh:Vehicle>")[0]+"</veh:Vehicle>");
                     System.out.println(outVDoc.toString());
                     String dc = xt.Transformation(outVDoc.toString());
