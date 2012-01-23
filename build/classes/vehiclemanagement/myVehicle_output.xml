@@ -1,0 +1,11 @@
+<veh:Vehicle xmlns:veh="http://xml.netbeans.org/schema/VehicleManagement">
+<title xmlns="http://purl.org/dc/elements/1.1/">zrx400</title>
+<date xmlns="http://purl.org/dc/elements/1.1/">2007-04-22</date>
+<publisher xmlns="http://purl.org/dc/elements/1.1/">Kyritsis</publisher>
+<coverage xmlns="http://purl.org/dc/elements/1.1/">
+            Start: 2007-04-19
+            End: 2002-09-18</coverage>
+<creator xmlns="http://purl.org/dc/elements/1.1/">Kawasaki</creator>
+<contributor xmlns="http://purl.org/dc/elements/1.1/">Bilstain</contributor>
+<rights xmlns="http://purl.org/dc/elements/1.1/">www.honda.gr</rights>
+</veh:Vehicle>

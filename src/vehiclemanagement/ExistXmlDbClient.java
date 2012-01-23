@@ -69,7 +69,7 @@ public class ExistXmlDbClient
                     //outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.substring(0,results.indexOf("</veh:Vehicle>")+15));
                     outVDoc = org.netbeans.xml.schema.vehicleManagement.VehicleDocument.Factory.parse(results.split("</veh:Vehicle>")[0]+"</veh:Vehicle>");
                     System.out.println(outVDoc.toString());
-                    xt.Transformation(outVDoc.toString());
+                    String dc = xt.Transformation(outVDoc.toString());
                 } catch (XmlException ex) {
                     //handle exception    
                     ex.printStackTrace();
